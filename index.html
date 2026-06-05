@@ -91,7 +91,7 @@ p  { font-size:17.5px; line-height:1.85; }
 ════════════════════════════════ */
 .hero {
   background:linear-gradient(180deg,#060d06 0%,#0a120a 50%,#111a0f 100%);
-  padding:72px 0 64px; text-align:center; position:relative; overflow:hidden;
+  padding:40px 0 48px; text-align:center; position:relative; overflow:hidden;
 }
 .hero::after {
   content:'';position:absolute;inset:0;pointer-events:none;
@@ -101,7 +101,7 @@ p  { font-size:17.5px; line-height:1.85; }
 
 .hero-eyebrow {
   font-family:'Cinzel',serif; font-size:10px; letter-spacing:.3em;
-  color:var(--gold2); text-transform:uppercase; display:block; margin-bottom:32px;
+  color:var(--gold2); text-transform:uppercase; display:block; margin-bottom:16px;
 }
 
 .hero-frame {
@@ -301,12 +301,13 @@ p  { font-size:17.5px; line-height:1.85; }
 
 .testi-track-wrap{overflow:hidden;position:relative;}
 .testi-track{
-  display:flex;gap:20px;
+  display:flex;gap:0;
   transition:transform .4s ease;
   will-change:transform;
 }
 .testi-card{
   flex:0 0 calc(50% - 10px);
+  margin-right:20px;
   background:#fff;
   border:1px solid var(--borderl);
   border-radius:8px;
@@ -316,6 +317,7 @@ p  { font-size:17.5px; line-height:1.85; }
   display:flex;
   flex-direction:column;
   min-height:220px;
+  box-sizing:border-box;
 }
 .testi-quote{
   font-family:'Lora',serif;font-size:56px;line-height:1;
@@ -427,18 +429,19 @@ p  { font-size:17.5px; line-height:1.85; }
   list-style:none;display:flex;flex-direction:column;gap:0;
 }
 .receive-item{
-  display:flex;align-items:flex-start;gap:14px;
-  padding:13px 0;border-bottom:1px solid rgba(200,170,100,.1);
-  font-size:15.5px;color:rgba(230,210,170,.8);line-height:1.6;
+  display:flex;align-items:center;gap:14px;
+  padding:14px 0;border-bottom:1px solid rgba(200,170,100,.15);
+  font-size:15px;color:rgba(230,210,170,.75);line-height:1.5;
 }
 .receive-item:last-child{border-bottom:none;}
-.receive-check{color:var(--gold2);font-size:14px;flex-shrink:0;margin-top:2px;}
-.receive-name{font-family:'Cinzel',serif;font-size:12.5px;color:#f0e4c4;display:block;margin-bottom:1px;font-weight:600;}
+.receive-check{color:var(--gold2);font-size:16px;flex-shrink:0;}
+.receive-name{font-family:'Cinzel',serif;font-size:13px;color:#f0e4c4;display:block;margin-bottom:2px;font-weight:600;letter-spacing:.03em;}
+.receive-desc{font-size:13px;color:rgba(230,210,170,.55);}
 .receive-value{
   margin-left:auto;flex-shrink:0;
   font-family:'Cinzel',serif;font-size:11px;
   color:rgba(230,210,170,.3);text-decoration:line-through;
-  padding-left:12px;
+  padding-left:12px;white-space:nowrap;
 }
 
 /* Timer */
@@ -528,7 +531,7 @@ footer a{color:inherit;}
 
   /* testimonials carousel: 1 card, full width, no clipping */
   .testi-track-wrap{overflow:hidden;}
-  .testi-card{flex:0 0 100%;width:100%;}
+  .testi-card{flex:0 0 100%;width:100%;margin-right:0;}
 }
 </style>
 </head>
@@ -1080,56 +1083,56 @@ footer a{color:inherit;}
       <img src="images/offer.webp" alt="Oferta" style="width:min(768px,100%);border-radius:8px;border:2px solid var(--gold3);box-shadow:0 0 24px rgba(245,200,66,.5),0 0 2px var(--gold3);">
     </div>
 
-    <h2 style="color:#f0e4c4;text-align:center;margin-bottom:24px;font-size:clamp(18px,3vw,26px);">Everything you get:</h2>
+    <h2 style="color:#f0e4c4;text-align:center;margin-bottom:24px;font-size:clamp(22px,4vw,30px);">Everything you get:</h2>
 
     <div class="offer-box reveal">
 
       <ul class="receive-list">
         <li class="receive-item">
-          <span class="receive-check">✦</span>
-          <div>
+                    <span class="receive-check">✦</span>
+          <div style="flex:1;">
             <span class="receive-name">The Hidden Grimoire of 99 Magical Herbs</span>
-            Complete grimoire — every property, magical use and ritual
+            <span class="receive-desc">Complete grimoire — every property, magical use and ritual</span>
           </div>
           <span class="receive-value">$37</span>
         </li>
         <li class="receive-item">
-          <span class="receive-check">✦</span>
-          <div>
+                    <span class="receive-check">✦</span>
+          <div style="flex:1;">
             <span class="receive-name">Bonus 1: A to Z Witchcraft Herbs</span>
-            A-Z encyclopedia of all magical herbs
+            <span class="receive-desc">A-Z encyclopedia of all magical herbs</span>
           </div>
           <span class="receive-value">$19</span>
         </li>
         <li class="receive-item">
-          <span class="receive-check">✦</span>
-          <div>
+                    <span class="receive-check">✦</span>
+          <div style="flex:1;">
             <span class="receive-name">Bonus 2: Medicinal Herbs in Witchcraft</span>
-            Properties medicinais e magia combinadas
+            <span class="receive-desc">Properties medicinais e magia combinadas</span>
           </div>
           <span class="receive-value">$17</span>
         </li>
         <li class="receive-item">
-          <span class="receive-check">✦</span>
-          <div>
+                    <span class="receive-check">✦</span>
+          <div style="flex:1;">
             <span class="receive-name">Bonus 3: Apothecary Templates</span>
-            Printable labels and organizers
+            <span class="receive-desc">Printable labels and organizers</span>
           </div>
           <span class="receive-value">$12</span>
         </li>
         <li class="receive-item">
-          <span class="receive-check">✦</span>
-          <div>
+                    <span class="receive-check">✦</span>
+          <div style="flex:1;">
             <span class="receive-name">Bonus 4: Astrology Library</span>
-            Planets, signs, houses and astrological magic
+            <span class="receive-desc">Planets, signs, houses and astrological magic</span>
           </div>
           <span class="receive-value">$17</span>
         </li>
         <li class="receive-item">
-          <span class="receive-check">✦</span>
-          <div>
+                    <span class="receive-check">✦</span>
+          <div style="flex:1;">
             <span class="receive-name">Lifetime Access</span>
-            All updates included forever
+            <span class="receive-desc">All updates included forever</span>
           </div>
           <span class="receive-value">Priceless</span>
         </li>
@@ -1457,8 +1460,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   function goTo(idx){
     current = Math.max(0, Math.min(idx, maxIndex()));
     const w = track.parentElement.offsetWidth;
-    const gap = 20;
-    const cardW = isMobile() ? w : (w - gap) / 2 + gap;
+    const cardW = isMobile() ? w : (w - 20) / 2 + 20;
     track.style.transform = `translateX(-${current * cardW}px)`;
     if(nav) nav.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i===current));
   }
