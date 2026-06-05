@@ -9,14 +9,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
-  --parch:  #f4e9d0;
-  --parch2: #ede0bc;
-  --dark:   #0f0b06;
-  --dark2:  #1a1208;
-  --dark3:  #251a0d;
-  --ink:    #1e1208;
-  --ink2:   #3a2810;
-  --ink3:   #6b4c28;
+  --parch:  #d6cdb0;
+  --parch2: #ccc3a6;
+  --dark:   #0a120a;
+  --dark2:  #111a0f;
+  --dark3:  #182014;
+  --ink:    #0a0600;
+  --ink2:   #1a0e04;
+  --ink3:   #3d2608;
   --green:  #2c4b22;
   --green2: #3b6430;
   --gold:   #c49a2a;
@@ -50,7 +50,7 @@ body{font-family:'Lora',Georgia,serif;color:var(--ink);overflow-x:hidden;}
   text-transform:uppercase; display:block; margin-bottom:10px;
 }
 .label-gold  { color:var(--gold2); }
-.label-muted { color:var(--gold); }
+.label-muted { color:var(--green); }
 .label-green { color:var(--green2); }
 
 h1 { font-family:'Cinzel Decorative',serif; font-size:clamp(30px,6.5vw,58px); font-weight:700; line-height:1.15; }
@@ -90,7 +90,7 @@ p  { font-size:17.5px; line-height:1.85; }
    BLOCO 1, HERO
 ════════════════════════════════ */
 .hero {
-  background:linear-gradient(180deg,#080502 0%,#0f0b06 50%,#1a1208 100%);
+  background:linear-gradient(180deg,#060d06 0%,#0a120a 50%,#111a0f 100%);
   padding:72px 0 64px; text-align:center; position:relative; overflow:hidden;
 }
 .hero::after {
@@ -115,7 +115,7 @@ p  { font-size:17.5px; line-height:1.85; }
 .hero-frame .c.br{bottom:7px;right:7px;border-width:0 2px 2px 0}
 .hero-frame::before,.hero-frame::after{
   content:'✦';position:absolute;left:50%;transform:translateX(-50%);
-  color:var(--gold);font-size:13px;padding:0 10px;background:#0f0b06;
+  color:var(--gold);font-size:13px;padding:0 10px;background:#0a120a;
 }
 .hero-frame::before{top:-9px}
 .hero-frame::after{bottom:-9px}
@@ -249,7 +249,7 @@ p  { font-size:17.5px; line-height:1.85; }
 }
 .bonus-img-bg::after{
   content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.55) 100%);
+  background:transparent;
 }
 .bonus-info{
   padding:16px 20px 22px;flex:1;
@@ -413,7 +413,7 @@ p  { font-size:17.5px; line-height:1.85; }
 
 .offer-badge{
   display:inline-block;
-  background:var(--rust);color:#f0e4c4;
+  background:#6e2a10;color:#f0e4c4;
   font-family:'Cinzel',serif;font-size:10px;font-weight:700;letter-spacing:.22em;
   padding:6px 20px;border-radius:2px;margin-bottom:28px;
   text-transform:uppercase;
@@ -511,19 +511,31 @@ footer a{color:inherit;}
 /* ── RESPONSIVE ── */
 @media(max-width:600px){
   .wrap{padding:0 16px;}
-  .hero-frame{padding:28px 18px 32px;}
+  .hero-frame{padding:24px 16px 28px;}
   .pain-grid{grid-template-columns:1fr;}
   .herb-cards{grid-template-columns:1fr;}
-  .testi-card{flex:0 0 88%;}
-  .offer-box{padding:32px 18px 40px;}
+  .offer-box{padding:24px 16px 32px;}
   .guarantee-wrap{flex-direction:column;}
+  .bonus-stack{grid-template-columns:1fr;}
+  .inside-row{flex-direction:column;gap:8px;}
+  .receive-item{flex-wrap:wrap;}
+  .receive-value{margin-left:0;}
+  .timer-num{font-size:36px;}
+  .price-now{font-size:44px;}
+  .btn-cta{padding:16px 20px;font-size:14px;}
+  .btn-main{padding:14px 28px;font-size:13px;}
+  .hero h1{font-size:clamp(26px,8vw,38px);}
+
+  /* testimonials carousel: 1 card, full width, no clipping */
+  .testi-track-wrap{overflow:hidden;}
+  .testi-card{flex:0 0 100%;width:100%;}
 }
 </style>
 </head>
 <body>
 
 <!-- TICKER -->
-<div style="background:var(--rust);overflow:hidden;white-space:nowrap;padding:10px 0;position:relative;z-index:10;">
+<div style="background:#6e2a10;overflow:hidden;white-space:nowrap;padding:10px 0;position:relative;z-index:10;">
   <div id="ticker" style="display:inline-block;animation:ticker 28s linear infinite;">
     <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">⚡ Today, <span id="tickerDate" style="color:var(--gold3);"></span>, is the last day of this offer!
     <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">✦ <span style="color:var(--gold3);">4 bonuses included</span> — limited time!</span>
@@ -557,17 +569,15 @@ footer a{color:inherit;}
 ══════════════════════════════ -->
 <section class="hero">
   <div class="wrap">
-    <span class="hero-eyebrow">✦ &nbsp; Digital Grimoire &nbsp;·&nbsp; Instant Download &nbsp; ✦</span>
+    <span class="hero-eyebrow" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;display:block;">✦ &nbsp; Digital Grimoire &nbsp;·&nbsp; Instant Download &nbsp; ✦</span>
 
     <h1 style="color:#f0e4c4;margin-bottom:10px;font-size:clamp(28px,5.5vw,52px);">The Hidden Grimoire of <span style="color:var(--gold2);">99 Magical Herbs</span></h1>
     <p class="hero-lead" style="font-family:'Cinzel',serif;font-size:clamp(14px,2.2vw,19px);font-weight:500;letter-spacing:.06em;color:rgba(230,210,170,.9);margin-bottom:32px;line-height:1.7;">Know exactly which herb to use in any spell or ritual — starting tonight!</p>
 
-    <div class="hero-frame">
+    <div class="hero-frame" style="padding:0;overflow:hidden;">
       <div class="c tl"></div><div class="c tr"></div>
       <div class="c bl"></div><div class="c br"></div>
-      <div class="hero-img-wrap" style="margin-bottom:0;">
-        <img src="images/mockup.webp" alt="The Hidden Grimoire of 99 Magical Herbs">
-      </div>
+      <img src="images/mockup.webp" alt="The Hidden Grimoire of 99 Magical Herbs" style="width:100%;display:block;border-radius:2px;">
     </div>
 
     <div style="margin-top:32px;">
@@ -683,6 +693,9 @@ footer a{color:inherit;}
           <p style="font-size:15px;color:rgba(230,210,170,.8);line-height:1.65;">Feel like <strong style="color:#f0e4c4;">a witch who knows what she's doing</strong>, not a forever beginner</p>
         </div>
 
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <div class="scroll-arrow">&#8811;</div>
       </div>
     </div>
   </div>
@@ -1032,7 +1045,7 @@ footer a{color:inherit;}
       <h2 style="font-family:'Cinzel',serif;font-size:clamp(26px,5vw,48px);font-weight:700;color:#f0e4c4;line-height:1.2;margin-bottom:0;letter-spacing:.04em;">
         How Much Does <span style="color:var(--gold2);">All of This Cost?</span>
       </h2>
-      <div style="width:48px;height:3px;background:var(--rust);margin:18px auto 28px;border-radius:2px;"></div>
+      <div style="width:48px;height:3px;background:#6e2a10;margin:18px auto 28px;border-radius:2px;"></div>
       <p style="font-size:17px;color:rgba(230,210,170,.65);line-height:1.9;max-width:520px;margin:0 auto 18px;">
         While herb books on Amazon charge <strong style="color:#f0e4c4;">$30, $40 or $50</strong> and still arrive incomplete — no correspondences, no rituals included...
       </p>
@@ -1421,19 +1434,22 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 (function(){
   const track = document.getElementById('testiTrack');
   const nav   = document.getElementById('testiNav');
+  if(!track) return;
   const cards = track.querySelectorAll('.testi-card');
-  const isMobile = () => window.innerWidth < 600;
+  const isMobile = () => window.innerWidth <= 600;
   let current = 0;
+  let autoplay;
 
   function visibleCount(){ return isMobile() ? 1 : 2; }
   function maxIndex(){ return Math.max(0, cards.length - visibleCount()); }
 
   function buildDots(){
+    if(!nav) return;
     nav.innerHTML = '';
     for(let i = 0; i <= maxIndex(); i++){
       const d = document.createElement('button');
       d.className = 'testi-dot' + (i===current?' active':'');
-      d.onclick = () => goTo(i);
+      d.onclick = () => { goTo(i); resetAutoplay(); };
       nav.appendChild(d);
     }
   }
@@ -1442,16 +1458,28 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     current = Math.max(0, Math.min(idx, maxIndex()));
     const w = track.parentElement.offsetWidth;
     const gap = 20;
-    const cardW = isMobile() ? w * .85 + gap : (w - 2*gap) / 3 + gap;
+    const cardW = isMobile() ? w : (w - gap) / 2 + gap;
     track.style.transform = `translateX(-${current * cardW}px)`;
-    nav.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i===current));
+    if(nav) nav.querySelectorAll('.testi-dot').forEach((d,i) => d.classList.toggle('active', i===current));
   }
 
-  document.getElementById('arrPrev').onclick = () => goTo(current - 1);
-  document.getElementById('arrNext').onclick = () => goTo(current + 1);
+  function next(){ goTo(current >= maxIndex() ? 0 : current + 1); }
+
+  function startAutoplay(){ autoplay = setInterval(next, 3500); }
+  function resetAutoplay(){ clearInterval(autoplay); startAutoplay(); }
+
+  const prev = document.getElementById('arrPrev');
+  const nextBtn = document.getElementById('arrNext');
+  if(prev) prev.onclick = () => { goTo(current - 1); resetAutoplay(); };
+  if(nextBtn) nextBtn.onclick = () => { goTo(current + 1); resetAutoplay(); };
+
+  // Pause on hover
+  track.addEventListener('mouseenter', () => clearInterval(autoplay));
+  track.addEventListener('mouseleave', () => startAutoplay());
 
   buildDots();
-  window.addEventListener('resize', () => { buildDots(); goTo(current); });
+  startAutoplay();
+  window.addEventListener('resize', () => { current = 0; buildDots(); goTo(0); });
 })();
 
 // ── FAQ ──
