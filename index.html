@@ -575,18 +575,13 @@ footer a{color:inherit;}
     <span class="hero-eyebrow" style="white-space:nowrap;display:block;font-size:clamp(8px,2.5vw,10.5px);">✦ &nbsp; Digital Grimoire &nbsp;·&nbsp; Instant Download &nbsp; ✦</span>
 
     <h1 style="color:#f0e4c4;margin-bottom:10px;font-size:clamp(28px,5.5vw,52px);">The Hidden Grimoire of <span style="color:var(--gold2);">99 Magical Herbs</span></h1>
-    <p class="hero-lead" style="font-family:'Cinzel',serif;font-size:clamp(14px,2.2vw,19px);font-weight:500;letter-spacing:.06em;color:rgba(230,210,170,.9);margin-bottom:32px;line-height:1.7;">Know exactly which herb to use in any spell or ritual — starting tonight!</p>
+    <p class="hero-lead" style="font-family:'Cinzel',serif;font-size:clamp(14px,2.2vw,19px);font-weight:500;letter-spacing:.06em;color:rgba(230,210,170,.9);margin-bottom:32px;line-height:1.7;">Stop guessing which herb to use for love, protection, cleansing and rituals — start practicing with confidence tonight.</p>
 
-    <div class="hero-frame" style="padding:0;overflow:hidden;border-radius:6px;">
-      <div class="c tl"></div><div class="c tr"></div>
-      <div class="c bl"></div><div class="c br"></div>
-      <img src="images/mockup.webp" alt="The Hidden Grimoire of 99 Magical Herbs" style="width:100%;display:block;border-radius:4px;">
+    <div style="margin-bottom:32px;">
+      <img src="images/mockuphero.webp" alt="The Hidden Grimoire of 99 Magical Herbs" style="width:min(584px,90vw);display:block;margin:0 auto;border-radius:6px;">
     </div>
 
     <div style="margin-top:32px;">
-      <p style="font-family:'Lora',serif;font-size:15px;color:var(--gold2);margin-bottom:14px;">
-        ★★★★★ <strong>4.91/5</strong> <span style="color:rgba(230,210,170,.45);font-weight:400;"> — 2.847 Verified Practitioners</span>
-      </p>
       <div style="display:inline-flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px;">
         <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:rgba(230,210,170,.6);border:1px solid rgba(200,170,100,.2);border-radius:20px;padding:6px 16px;">⚡ Instant download</span>
         <span style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:rgba(230,210,170,.6);border:1px solid rgba(200,170,100,.2);border-radius:20px;padding:6px 16px;">📄 PDF Files</span>
@@ -758,9 +753,49 @@ footer a{color:inherit;}
       </div>
     </div>
 
+    <div class="reveal" style="text-align:center;margin-top:48px;">
+      <p style="font-family:'Cinzel',serif;font-size:clamp(14px,2vw,18px);font-weight:600;letter-spacing:.1em;color:var(--ink);margin-bottom:24px;">SEE AN EXAMPLE:</p>
+
+      <div style="position:relative;overflow:hidden;border-radius:8px;max-width:621px;margin:0 auto;aspect-ratio:621/878;">
+        <div id="exTrack" style="display:flex;transition:transform .4s ease;">
+          <img src="images/exemplo1.webp" alt="Grimoire page example 1" style="width:100%;flex-shrink:0;display:block;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.15);border:1px solid var(--borderl);">
+          <img src="images/exemplo2.webp" alt="Grimoire page example 2" style="width:100%;flex-shrink:0;display:block;border-radius:8px;box-shadow:0 8px 32px rgba(0,0,0,.15);border:1px solid var(--borderl);">
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:16px;">
+        <button onclick="exGo(-1)" style="width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--ink2);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&#8592;</button>
+        <span id="exDot1" style="width:8px;height:8px;border-radius:50%;background:var(--gold2);display:inline-block;cursor:pointer;" onclick="exSet(0)"></span>
+        <span id="exDot2" style="width:8px;height:8px;border-radius:50%;background:var(--borderl);display:inline-block;cursor:pointer;" onclick="exSet(1)"></span>
+        <button onclick="exGo(1)" style="width:36px;height:36px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--ink2);font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;">&#8594;</button>
+      </div>
+    </div>
+
+<script>
+(function(){
+  let cur = 0;
+  const total = 2;
+  const track = document.getElementById('exTrack');
+  const dots = [document.getElementById('exDot1'), document.getElementById('exDot2')];
+
+  function exUpdate(){
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d,i) => d.style.background = i===cur ? 'var(--gold2)' : 'var(--borderl)');
+  }
+
+  window.exGo = function(dir){
+    cur = (cur + dir + total) % total;
+    exUpdate();
+  };
+  window.exSet = function(idx){
+    cur = idx;
+    exUpdate();
+  };
+})();
+</script>
+
   </div>
 </section>
-
 <!-- ══════════════════════════════
   BLOCO 4, BÔNUS
 ══════════════════════════════ -->
@@ -839,6 +874,13 @@ footer a{color:inherit;}
     <div class="testi-top reveal">
       <span class="label label-muted">Rated by over 2,800 practitioners</span>
       <h2>What other witches are saying</h2>
+
+      <div style="display:inline-flex;align-items:center;gap:16px;margin-top:14px;background:rgba(255,255,255,.5);border:1px solid var(--borderl);border-radius:40px;padding:10px 24px;">
+        <span style="font-size:18px;color:var(--gold2);letter-spacing:3px;">★★★★★</span>
+        <span style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--ink);">4.91<span style="color:var(--ink3);font-weight:400;">/5</span></span>
+        <span style="width:1px;height:20px;background:var(--borderl);display:inline-block;"></span>
+        <span style="font-family:'Lora',serif;font-size:14px;color:var(--ink2);font-style:italic;">2,847 Verified Practitioners</span>
+      </div>
     </div>
 
     <div class="testi-track-wrap reveal">
@@ -1153,7 +1195,7 @@ footer a{color:inherit;}
       </div>
 
       <!-- CTA -->
-      <a href="#checkout" class="btn-cta">
+      <a href="https://pay.mycheckoutt.com/019ea88b-f318-73d3-8dba-ea26eff602db?ref=" class="btn-cta">
         🔮 &nbsp;Yes, I Want My Grimoire →
       </a>
 
@@ -1287,7 +1329,7 @@ footer a{color:inherit;}
     <!-- DECISÃO FINAL -->
     <div class="reveal" style="max-width:600px;margin:56px auto 0;text-align:center;">
 
-      <a href="#checkout" class="btn-cta" style="display:block;width:100%;font-size:17px;">
+      <a href="https://pay.mycheckoutt.com/019ea88b-f318-73d3-8dba-ea26eff602db?ref=" class="btn-cta" style="display:block;width:100%;font-size:17px;">
         🔮 &nbsp;Yes, I Want My Grimoire →
       </a>
       <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:rgba(230,210,170,.4);margin-top:10px;">Instant Access to the Grimoire + 4 Bonuses</p>
@@ -1382,7 +1424,7 @@ footer a{color:inherit;}
     <div class="reveal" style="margin-top:48px;text-align:center;background:rgba(255,255,255,.6);border:1.5px solid var(--border);border-radius:8px;padding:36px 28px;box-shadow:0 4px 20px rgba(0,0,0,.08);">
       <p style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:.3em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;">Launch price</p>
       <p style="font-family:'Cinzel Decorative',serif;font-size:clamp(44px,8vw,64px);font-weight:700;color:var(--green);line-height:1;margin-bottom:24px;">$17 <span style="font-size:22px;color:var(--ink3);">USD</span></p>
-      <a href="#checkout" class="btn-cta" style="display:block;max-width:480px;margin:0 auto;font-size:16px;">
+      <a href="https://pay.mycheckoutt.com/019ea88b-f318-73d3-8dba-ea26eff602db?ref=" class="btn-cta" style="display:block;max-width:480px;margin:0 auto;font-size:16px;">
         🔮 &nbsp;Yes, I Want My Grimoire →
       </a>
       <p style="font-family:'Cinzel',serif;font-size:11px;letter-spacing:.1em;color:var(--ink3);margin-top:10px;">Instant Access — Grimoire + 4 Bonuses</p>
