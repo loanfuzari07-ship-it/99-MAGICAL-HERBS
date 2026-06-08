@@ -497,7 +497,10 @@ footer{
 footer a{color:inherit;}
 
 /* ── SCROLL ARROW ── */
-.scroll-arrow {
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}.scroll-arrow {
   font-size:28px;color:var(--gold2);opacity:.6;
   animation:bounce 1.6s ease infinite;
   transform:rotate(90deg);display:inline-block;
@@ -538,31 +541,44 @@ footer a{color:inherit;}
 <body>
 
 <!-- TICKER -->
-<div style="background:#6e2a10;overflow:hidden;white-space:nowrap;padding:10px 0;position:relative;z-index:10;">
+<div style="background:#6e2a10;overflow:hidden;white-space:nowrap;padding:10px 0;position:relative;z-index:10;min-height:38px;line-height:1.5;">
   <div id="ticker" style="display:inline-block;animation:ticker 28s linear infinite;">
-    <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">⚡ Today, <span id="tickerDate" style="color:var(--gold3);"></span>, is the last day of this offer!
+    <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">⚡ Today, <span id="tickerDate" style="color:var(--gold3);"></span>, is the last day of this offer!</span>
     <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">✦ <span style="color:var(--gold3);">4 bonuses included</span> — limited time!</span>
-    <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">⚡ Today, <span class="tickerDate2" style="color:var(--gold3);"></span>, is the last day of this offer!
+    <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">⚡ Today, <span class="tickerDate2" style="color:var(--gold3);"></span>, is the last day of this offer!</span>
     <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">✦ <span style="color:var(--gold3);">4.91/5</span> — 2,847 reviews</span>
     <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">✦ <span style="color:var(--gold3);">4 bonuses included</span> — limited time!</span>
-    <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">⚡ Today, <span class="tickerDate2" style="color:var(--gold3);"></span>, is the last day of this offer!
+    <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">⚡ Today, <span class="tickerDate2" style="color:var(--gold3);"></span>, is the last day of this offer!</span>
     <span style="font-family:'Cinzel',serif;font-size:11px;font-weight:600;letter-spacing:.12em;color:#f0e4c4;padding:0 32px;">✦ <span style="color:var(--gold3);">4.91/5</span> — 2,847 reviews</span>
   </div>
 </div>
 
-<style>
-@keyframes ticker {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-</style>
+
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+<script>
+  window.pixelId = "6a1f5412fce2f54ac6dc954e";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
 
 <script>
 (function(){
   const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
   const d = new Date();
   const dateStr = months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
-  document.getElementById('tickerDate').textContent = dateStr;
+  const el = document.getElementById('tickerDate');
+  if(el) el.textContent = dateStr;
   document.querySelectorAll('.tickerDate2').forEach(el => el.textContent = dateStr);
 })();
 </script>
@@ -812,7 +828,19 @@ footer a{color:inherit;}
 
       <div class="bonus-card">
         <div class="bonus-tag">Bonus 1</div>
-        <div class="bonus-img-bg" style="background-image:url('images/bonus1.webp');background-color:rgba(30,25,15,.9);"></div>
+        <div class="bonus-img-bg" style="background-image:url('images/bonus1.webp');background-color:rgba(15,15,35,.9);"></div>
+        <div class="bonus-info">
+          <div class="bonus-body">
+            <h3>21 Simple Herbal Spells & Rituals</h3>
+            <p>Use the herbs from your grimoire in ready-to-follow spells for love, protection, cleansing, luck and spiritual clarity.</p>
+          </div>
+          <div class="bonus-footer"><span class="bonus-value">$17</span><span class="bonus-free">Free Today</span></div>
+        </div>
+      </div>
+
+      <div class="bonus-card">
+        <div class="bonus-tag">Bonus 2</div>
+        <div class="bonus-img-bg" style="background-image:url('images/bonus2.webp');background-color:rgba(30,25,15,.9);"></div>
         <div class="bonus-info">
           <div class="bonus-body">
             <h3>Medicinal Herbs in Witchcraft</h3>
@@ -823,8 +851,8 @@ footer a{color:inherit;}
       </div>
 
       <div class="bonus-card">
-        <div class="bonus-tag">Bonus 2</div>
-        <div class="bonus-img-bg" style="background-image:url('images/bonus2.webp');background-color:rgba(30,50,20,.9);"></div>
+        <div class="bonus-tag">Bonus 3</div>
+        <div class="bonus-img-bg" style="background-image:url('images/bonus3.webp');background-color:rgba(30,50,20,.9);"></div>
         <div class="bonus-info">
           <div class="bonus-body">
             <h3>A to Z Witchcraft Herbs</h3>
@@ -835,26 +863,14 @@ footer a{color:inherit;}
       </div>
 
       <div class="bonus-card">
-        <div class="bonus-tag">Bonus 3</div>
-        <div class="bonus-img-bg" style="background-image:url('images/bonus3.webp');background-color:rgba(20,20,30,.9);"></div>
+        <div class="bonus-tag">Bonus 4</div>
+        <div class="bonus-img-bg" style="background-image:url('images/bonus4.webp');background-color:rgba(20,20,30,.9);"></div>
         <div class="bonus-info">
           <div class="bonus-body">
             <h3>Apothecary Templates</h3>
             <p>Printable labels and organizers — build an apothecary as beautiful as it is functional.</p>
           </div>
           <div class="bonus-footer"><span class="bonus-value">$12</span><span class="bonus-free">Free Today</span></div>
-        </div>
-      </div>
-
-      <div class="bonus-card">
-        <div class="bonus-tag">Bonus 4</div>
-        <div class="bonus-img-bg" style="background-image:url('images/bonus4.webp');background-color:rgba(15,15,35,.9);"></div>
-        <div class="bonus-info">
-          <div class="bonus-body">
-            <h3>Astrology Library</h3>
-            <p>Planets, signs, houses and astrological magic, weave the stars into your practice.</p>
-          </div>
-          <div class="bonus-footer"><span class="bonus-value">$17</span><span class="bonus-free">Free Today</span></div>
         </div>
       </div>
 
@@ -1141,15 +1157,23 @@ footer a{color:inherit;}
         <li class="receive-item">
           <span class="receive-check">✦</span>
           <div style="flex:1;">
-            <span class="receive-name">Bonus 1: Medicinal Herbs in Witchcraft</span>
-            <span class="receive-desc">Where healing meets spellwork — medicinal properties and magic combined</span>
+            <span class="receive-name">Bonus 1: 21 Simple Herbal Spells &amp; Rituals</span>
+            <span class="receive-desc">Ready-to-follow spells for love, protection, cleansing and luck</span>
           </div>
           <span class="receive-value">$19</span>
         </li>
         <li class="receive-item">
           <span class="receive-check">✦</span>
           <div style="flex:1;">
-            <span class="receive-name">Bonus 2: A to Z Witchcraft Herbs</span>
+            <span class="receive-name">Bonus 2: Medicinal Herbs in Witchcraft</span>
+            <span class="receive-desc">Where healing meets spellwork — medicinal properties and magic combined</span>
+          </div>
+          <span class="receive-value">$17</span>
+        </li>
+        <li class="receive-item">
+          <span class="receive-check">✦</span>
+          <div style="flex:1;">
+            <span class="receive-name">Bonus 3: A to Z Witchcraft Herbs</span>
             <span class="receive-desc">Complete A-Z encyclopedia of all magical herbs</span>
           </div>
           <span class="receive-value">$17</span>
@@ -1157,18 +1181,10 @@ footer a{color:inherit;}
         <li class="receive-item">
           <span class="receive-check">✦</span>
           <div style="flex:1;">
-            <span class="receive-name">Bonus 3: Apothecary Templates</span>
+            <span class="receive-name">Bonus 4: Apothecary Templates</span>
             <span class="receive-desc">Printable labels and organizers for your practice</span>
           </div>
           <span class="receive-value">$12</span>
-        </li>
-        <li class="receive-item">
-          <span class="receive-check">✦</span>
-          <div style="flex:1;">
-            <span class="receive-name">Bonus 4: Astrology Library</span>
-            <span class="receive-desc">Planets, signs, houses and astrological magic</span>
-          </div>
-          <span class="receive-value">$17</span>
         </li>
         <li class="receive-item">
           <span class="receive-check">✦</span>
